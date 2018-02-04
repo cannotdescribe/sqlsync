@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dataSourceConfig>
+    <dataSources>
+
+        <dataSource>
+            <station>station100000</station>
+            <username>root</username>
+            <password>insigma123</password>
+            <ip>10.10.15.47</ip>
+            <dbName>jy_ecm2.0</dbName>
+        </dataSource>
+
+        <dataSource>
+            <station>station100001</station>
+            <username>root</username>
+            <password>insigma123</password>
+            <ip>10.10.15.47</ip>
+            <dbName>jy_ecm2.0_1</dbName>
+        </dataSource>
+
+    </dataSources>
+
+</dataSourceConfig>
+
