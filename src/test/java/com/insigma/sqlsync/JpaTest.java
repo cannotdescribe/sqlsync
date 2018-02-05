@@ -16,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import java.util.Iterator;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @Transactional
@@ -64,5 +66,13 @@ public class JpaTest {
 ////事务状态
 //        TransactionStatus status = tm.getTransaction(def);
 //        tm.commit(status);
+    }
+
+    @Test
+    public void query() {
+        RealTimeBean r = new RealTimeBean();
+        r.setTableName("tbrealtimedata");
+//        List<RealTimeBean> realTimeBeans = userRepository.query(r);
+//        System.out.println(realTimeBeans.size());
     }
 }
