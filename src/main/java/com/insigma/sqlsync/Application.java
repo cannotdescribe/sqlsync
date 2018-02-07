@@ -1,5 +1,6 @@
 package com.insigma.sqlsync;
 
+import com.insigma.sqlsync.entity.realtime.HfRealTimeDataBean;
 import com.insigma.sqlsync.entity.realtime.RealTimeDataBean;
 import com.insigma.sqlsync.repository.RealTimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,8 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        RealTimeDataBean r = new RealTimeDataBean();
+        HfRealTimeDataBean r = new HfRealTimeDataBean();
+        r.setTagIsid("dsadsad");
         realTimeRespository.save(r);
     }
 

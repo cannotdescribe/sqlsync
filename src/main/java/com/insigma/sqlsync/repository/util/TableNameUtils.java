@@ -19,8 +19,4 @@ public class TableNameUtils {
         return "tb"+(dvTypeCode==null?"":dvTypeCode)+"realtimedata";
     }
 
-    public static void main(String[] args) {
-        String dv = getDvTypeCodeByClassName(new RealTimeDataBean());
-        System.out.println(dv.equals(""));
-    }
 }

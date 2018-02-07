@@ -1,12 +1,10 @@
 package com.insigma.sqlsync.entity.realtime;
 
 import com.insigma.sqlsync.entity.BaseBean;
-import com.insigma.sqlsync.entity.listeners.RealTimeListeners;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.Filters;
 import org.hibernate.annotations.ParamDef;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
@@ -19,6 +17,7 @@ import javax.persistence.*;
 })
 //@EntityListeners(RealTimeListeners.class)
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "tbrealtimedata")
 public class RealTimeDataBean extends BaseBean {
     private Long id;
@@ -46,7 +45,7 @@ public class RealTimeDataBean extends BaseBean {
 
     @Id
     @Column(unique = true,nullable=false,insertable = false, updatable = false)
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public Long getId() {
         return id;
     }

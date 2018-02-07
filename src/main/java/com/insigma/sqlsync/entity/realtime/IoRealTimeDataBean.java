@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbpacrealtimedata")
+@Table(name = "tbiorealtimedata")
 public class IoRealTimeDataBean extends RealTimeDataBean{
 
 }
