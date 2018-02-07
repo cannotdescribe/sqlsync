@@ -21,25 +21,25 @@
 
 
     <!--配置EntityManagerFactory-->
-    <bean id = "entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-            </bean>
-        </property>
-        <property name="packagesToScan" value="com.insigma.sqlsync.entity"/>
-        <property name="jpaProperties">
-            <props>
-                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+    <!--<bean id = "entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="jpaVendorAdapter">-->
+            <!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
+            <!--</bean>-->
+        <!--</property>-->
+        <!--<property name="packagesToScan" value="com.insigma.sqlsync.entity"/>-->
+        <!--<property name="jpaProperties">-->
+            <!--<props>-->
+                <!--<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>-->
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>-->
+                <!--<prop key="hibernate.show_sql">true</prop>-->
+                <!--<prop key="hibernate.format_sql">true</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
 
-                <!--<prop key="hibernate."-->
-            </props>
-        </property>
-    </bean>
+                <!--&lt;!&ndash;<prop key="hibernate."&ndash;&gt;-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!--<bean id="sessionFactory" class="org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean">-->
         <!--<property name="entityManagerFactory" ref="entityManagerFactory"/>-->
     <!--</bean>-->

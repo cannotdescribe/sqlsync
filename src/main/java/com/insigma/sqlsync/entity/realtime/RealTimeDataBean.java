@@ -1,22 +1,26 @@
 package com.insigma.sqlsync.entity.realtime;
 
 import com.insigma.sqlsync.entity.BaseBean;
+import com.insigma.sqlsync.entity.listeners.RealTimeListeners;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.Filters;
 import org.hibernate.annotations.ParamDef;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
-@Entity
+
 @FilterDef(name = "filterByHotelCode", parameters = {
         @ParamDef(name = "filterCode", type = "string")
 })
 @Filters({
         @Filter(name = "filterByHotelCode", condition = "hotel_code like :filterCode")
 })
+//@EntityListeners(RealTimeListeners.class)
+@Entity
 @Table(name = "tbrealtimedata")
-public class RealTimeBean extends BaseBean {
+public class RealTimeDataBean extends BaseBean {
     private Long id;
 
     private String tagIsid;
@@ -29,8 +33,19 @@ public class RealTimeBean extends BaseBean {
 
     private Integer alarmLevel;
 
+    private String dvTypeCode;
+
+
+    public String getDvTypeCode() {
+        return dvTypeCode;
+    }
+
+    public void setDvTypeCode(String dvTypeCode) {
+        this.dvTypeCode = dvTypeCode;
+    }
+
     @Id
-    @Column(unique = true,nullable=false)
+    @Column(unique = true,nullable=false,insertable = false, updatable = false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     public Long getId() {
         return id;

@@ -19,7 +19,7 @@ public class DataSourceInfoUtils {
         SAXReader reader = new SAXReader();
         try {
             ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-            Resource resource = resolver.getResource("classpath:sqlConfig.xml");
+            Resource resource = resolver.getResource("classpath:config/sqlConfig.xml");
             document = reader.read(resource.getFile());
         } catch (DocumentException e) {
             e.printStackTrace();
@@ -67,6 +67,9 @@ public class DataSourceInfoUtils {
         return dataSource.element("station").getText();
     }
     public static String getPlusKey(Element dataSource){
+        return dataSource.element("key").getText();
+    }
+    public static String getKey(Element dataSource){
         return dataSource.element("key").getText();
     }
 
