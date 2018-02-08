@@ -45,7 +45,7 @@ public class RealTimeDataBean extends BaseBean {
 
     @Id
     @Column(unique = true,nullable=false,insertable = false, updatable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.TABLE)
     public Long getId() {
         return id;
     }

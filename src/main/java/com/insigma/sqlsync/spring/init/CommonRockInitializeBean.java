@@ -1,10 +1,13 @@
 package com.insigma.sqlsync.spring.init;
 
-import com.insigma.sqlsync.datasource.DataSourceInfoUtils;
+import com.insigma.sqlsync.config.DataSourceInfoUtils;
 import com.insigma.sqlsync.datasource.util.CommonRock;
 import com.insigma.sqlsync.datasource.util.DataSourceEntity;
+import com.insigma.sqlsync.entity.realtime.RealTimeDataBean;
+import com.insigma.sqlsync.repository.RealTimeRepository;
 import org.dom4j.Element;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +15,19 @@ import java.util.List;
 
 public class CommonRockInitializeBean implements InitializingBean {
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    @Autowired
+    private RealTimeRepository realTimeRepository;
+
+    public void childrenInit(){
+        List<DataSourceEntity> dataSourceEntityList = CommonRock.getDataSourceEntityList();
+        for(DataSourceEntity dataSourceEntity : dataSourceEntityList){
+            dataSourceEntity.active();
+            realTimeRepository.save(new RealTimeDataBean());
+        }
+        CommonRock.restoreRoot();
+    }
+
+    public void initDataSourceConfig(){
         List<Element> dataSourceElements = DataSourceInfoUtils.getDataSources();
         List<DataSourceEntity> dataSourceEntityList = new ArrayList<DataSourceEntity>();
         DataSourceEntity rootDataSourceEntity = null;
@@ -33,5 +47,11 @@ public class CommonRockInitializeBean implements InitializingBean {
         CommonRock.setDataSourceEntityList(dataSourceEntityList);
 
         CommonRock.setRootDataSourceEntity(rootDataSourceEntity);
+    }
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
+        initDataSourceConfig();
+
     }
 }

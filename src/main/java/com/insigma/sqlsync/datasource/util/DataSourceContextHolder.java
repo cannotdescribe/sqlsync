@@ -76,7 +76,7 @@ public class DataSourceContextHolder {
     			return dataSource;
     		}
     	}else{
-            System.out.println(contextHolder.get());
+            System.out.println("奇怪:"+ contextHolder.get());
             return contextHolder.get();
     	}
     }

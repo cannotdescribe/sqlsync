@@ -13,25 +13,16 @@ public class Common {
 	 * @param station
 	 */
 	public static boolean setDataSource(String station){
-        if(ConfigStationInfoFactory.getKey().contains(station.substring(7))){
-            DataSourceContextHolder.setDbType(station);
-            return true;
-        }else{
-            return false;
-        }
+        DataSourceContextHolder.setDbType(station);
+        return true;
 	}
 	/**
 	 * 根据stIsid 来切换数据源
 	 * @param stIsid
 	 */
 	public static boolean setDataSourceById(String stIsid){
-		System.out.println("切换数据源:"+stIsid);
-		if(ConfigStationInfoFactory.getKey().contains(stIsid)){
-            DataSourceContextHolder.setDbType("station"+stIsid);
-            return true;
-        }else{
-            return false;
-        }
+        DataSourceContextHolder.setDbType("station"+stIsid);
+        return true;
 	}
 	public static String getDataSource(){
 		return DataSourceContextHolder.getDbType();

@@ -1,6 +1,6 @@
-package com.insigma.sqlsync.config;
+package com.insigma.sqlsync.configuration;
 
-import com.insigma.sqlsync.datasource.DataSourceInfoUtils;
+import com.insigma.sqlsync.config.DataSourceInfoUtils;
 import com.insigma.sqlsync.datasource.DynamicDataSource;
 import org.dom4j.Element;
 import org.springframework.context.annotation.Bean;

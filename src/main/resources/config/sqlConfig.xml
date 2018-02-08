@@ -12,9 +12,9 @@
         <dataSource>
             <key>2</key>
             <username>root</username>
-            <password>insigma123</password>
-            <ip>10.10.15.47</ip>
-            <dbName>jy_ecm2.0_1</dbName>
+            <password>123456</password>
+            <ip>127.0.0.1</ip>
+            <dbName>springdata_0</dbName>
         </dataSource>
 
     </dataSources>

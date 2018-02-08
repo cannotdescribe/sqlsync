@@ -15,16 +15,18 @@ public class RealTimeService {
     @Autowired
     private RealTimeRepository realTimeRespository;
 
-    public void queryChildren(RealTimeDataBean realTimeBean){
+    public void initRealtime(){
         List<RealTimeDataBean> realTimeBeans = new ArrayList<RealTimeDataBean>();
 
         List<DataSourceEntity> children = CommonRock.getDataSourceEntityList();
         for(DataSourceEntity dataSourceEntity : children){
             dataSourceEntity.active();
-            realTimeBeans.addAll(realTimeRespository.dynamicQuery(realTimeBean));
-            //TODO
+//            realTimeBeans.addAll(realTimeRespository.dynamicQuery(realTimeBean));
+//            List<RealTimeDataBean> result = SystemInfoUtils.getRealTime();
+//            for(RealTimeDataBean realTimeDataBean : result){
+                realTimeBeans.addAll(realTimeRespository.find(new RealTimeDataBean()));
+//            }
         }
-
         CommonRock.restoreRoot();
         realTimeRespository.saveAll(realTimeBeans);
     }

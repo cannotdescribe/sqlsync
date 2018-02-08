@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <system>
-    <dvTypeCodes>AC, EE, EG, HF, IO, PAC, ST, UPS, VS</dvTypeCodes>
+    <dvTypeCodes>
+        <key id="AC" realtimeClass="com.insigma.sqlsync.entity.realtime.AcRealTimeDataBean"/>
+        <key id="EE" realtimeClass="com.insigma.sqlsync.entity.realtime.EeRealTimeDataBean"/>
+        <key id="EG" realtimeClass="com.insigma.sqlsync.entity.realtime.EgRealTimeDataBean"/>
+        <key id="HF" realtimeClass="com.insigma.sqlsync.entity.realtime.HfRealTimeDataBean"/>
+        <key id="IO" realtimeClass="com.insigma.sqlsync.entity.realtime.IoRealTimeDataBean"/>
+        <key id="PAC" realtimeClass="com.insigma.sqlsync.entity.realtime.PacRealTimeDataBean"/>
+        <key id="ST" realtimeClass="com.insigma.sqlsync.entity.realtime.StRealTimeDataBean"/>
+        <key id="VS" realtimeClass="com.insigma.sqlsync.entity.realtime.VsRealTimeDataBean"/>
+    </dvTypeCodes>
 </system>
 

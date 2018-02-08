@@ -1,39 +1,40 @@
 package com.insigma.sqlsync;
 
-import com.insigma.sqlsync.entity.realtime.HfRealTimeDataBean;
-import com.insigma.sqlsync.entity.realtime.RealTimeDataBean;
 import com.insigma.sqlsync.repository.RealTimeRepository;
+import com.insigma.sqlsync.service.RealTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
-
-import java.util.List;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ImportResource(locations={"classpath:application-bean.xml"})
+//@ImportResource(locations={"classpath:application-bean.xml"})
 @ComponentScan(basePackages={
         "com.insigma.sqlsync.repository",
-        "com.insigma.sqlsync.config",
-        "com.insigma.sqlsync.spring"
+        "com.insigma.sqlsync.configuration",
+        "com.insigma.sqlsync.spring",
+        "com.insigma.sqlsync.service"
 })
+@EnableJpaRepositories(
+        basePackages = {"com.insigma.sqlsync.repository"},
+        entityManagerFactoryRef = "entityManagerFactory"
+//        includeFilters = {@ComponentScan.Filter(type= FilterType.ANNOTATION, value=RealTimeRepository.class)}
+)
 //@EntityScan("com.insigma.sqlsync.entity")
-//@EnableJpaRepositories(basePackages={"com.insigma.sqlsync.repository"})
 public class Application implements CommandLineRunner {
 
     @Autowired
-    private RealTimeRepository realTimeRespository;
+    private RealTimeService realTimeService;
 
     @Override
     public void run(String... args) {
-        HfRealTimeDataBean r = new HfRealTimeDataBean();
-        r.setTagIsid("dsadsad");
-        realTimeRespository.save(r);
+//        realTimeService.initRealtime();
     }
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.insigma.sqlsync.config;
+package com.insigma.sqlsync.configuration;
 
 import com.insigma.sqlsync.spring.init.CommonRockInitializeBean;
 import org.springframework.context.annotation.Bean;
