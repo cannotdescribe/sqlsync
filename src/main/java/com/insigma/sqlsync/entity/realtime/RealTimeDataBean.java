@@ -1,25 +1,22 @@
 package com.insigma.sqlsync.entity.realtime;
 
-import com.insigma.sqlsync.entity.BaseBean;
-import org.hibernate.annotations.Filter;
-import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.Filters;
-import org.hibernate.annotations.ParamDef;
-
 import javax.persistence.*;
 
-
-@FilterDef(name = "filterByHotelCode", parameters = {
-        @ParamDef(name = "filterCode", type = "string")
-})
-@Filters({
-        @Filter(name = "filterByHotelCode", condition = "hotel_code like :filterCode")
-})
+//@FilterDef(name = "filterByHotelCode", parameters = {
+//        @ParamDef(name = "filterCode", type = "string")
+//})
+//@Filters({
+//        @Filter(name = "filterByHotelCode", condition = "hotel_code like :filterCode")
+//})
 //@EntityListeners(RealTimeListeners.class)
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "tbrealtimedata")
-public class RealTimeDataBean extends BaseBean {
+//@DiscriminatorColumn(name = "tbrealtimedata")
+public class RealTimeDataBean {
+    @Id
+//    @Column(unique = true,nullable=false,insertable = false, updatable = false)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     private String tagIsid;
@@ -43,9 +40,6 @@ public class RealTimeDataBean extends BaseBean {
         this.dvTypeCode = dvTypeCode;
     }
 
-    @Id
-    @Column(unique = true,nullable=false,insertable = false, updatable = false)
-    @GeneratedValue(strategy=GenerationType.TABLE)
     public Long getId() {
         return id;
     }
